@@ -13,7 +13,7 @@ router.use(cors());
 // REST-api for courses
 // GET
 // Get all courses
-router.get("/", (req, res) => {
+router.get("/get", (req, res) => {
 
     // Find courses-documents in DB and send result
     Course.find().sort({sort: -1}).exec((err, AllCourses) => {
@@ -30,7 +30,7 @@ router.get("/", (req, res) => {
 });
 
 // Get specific course by id
-router.get("/:id", (req, res) => {
+router.get("/get/:id", (req, res) => {
 
     // Find course-document in DB and send result
     Course.findById(req.params.id, (err, singleCourse) => {
