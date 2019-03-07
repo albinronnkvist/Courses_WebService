@@ -16,7 +16,7 @@ router.use(cors());
 router.get("/get", (req, res) => {
 
     // Find courses-documents in DB and send result
-    Course.find().sort({sort: -1}).exec((err, AllCourses) => {
+    Course.find((err, AllCourses) => {
         // If there was an error
         if(err) {
             // Send error-message
@@ -26,7 +26,7 @@ router.get("/get", (req, res) => {
             // Convert result to JSON and send
             res.json(AllCourses);
         }
-    });
+    }).sort({sort: -1});
 });
 
 // Get specific course by id
