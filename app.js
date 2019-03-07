@@ -47,5 +47,5 @@ app.listen(port, () => {
 
 // Ping heroku app to prevent sleep-mode
 setInterval(() => {
-    http.get("https://ancient-shore-25033.herokuapp.com/");
+    http.get("https://ancient-shore-25033.herokuapp.com/courses/get");
 }, 300000); // every 5 minutes (300000)
