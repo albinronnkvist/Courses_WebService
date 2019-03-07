@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+var http = require("http");
 
 // Initialize express
 const app = express();
@@ -43,3 +44,8 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 })
+
+// Ping heroku app to prevent sleep-mode
+setInterval(() => {
+    http.get("https://ancient-shore-25033.herokuapp.com/");
+}, 300000); // every 5 minutes (300000)
