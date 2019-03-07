@@ -6,6 +6,11 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 var http = require("http");
 
+// Ping heroku app to prevent sleep-mode
+setInterval(() => {
+    http.get("https://ancient-shore-25033.herokuapp.com/courses/get");
+}, 300000); // every 5 minutes (300000)
+
 // Initialize express
 const app = express();
 
@@ -44,8 +49,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 })
-
-// Ping heroku app to prevent sleep-mode
-setInterval(() => {
-    http.get("https://ancient-shore-25033.herokuapp.com/courses/get");
-}, 300000); // every 5 minutes (300000)
