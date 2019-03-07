@@ -30,7 +30,7 @@ const CourseSchema = new mongoose.Schema({
         type: String
     },
     sort: {
-        type: String
+        type: Number
     }
 });
 
